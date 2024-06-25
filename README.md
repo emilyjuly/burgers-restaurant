@@ -1,30 +1,8 @@
-# React + TypeScript + Vite
+## In progress...
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Figma:<br>
+https://www.figma.com/design/9eUcy4OeOdqP9Ux5TyCGga/Front-end-test?node-id=8-2424&t=3dyxxFInDr6IHK2i-0 <br><br>
+https://www.figma.com/proto/9eUcy4OeOdqP9Ux5TyCGga/Front-end-test?page-id=9%3A2408&type=design&node-id=9-2436&viewport=331%2C510%2C0.19&scaling=scale-down&starting-point-node-id=9%3A2409 <br>
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+Repo: <br>
+https://github.com/qsengineers/frontend-challenge
