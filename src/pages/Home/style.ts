@@ -4,12 +4,17 @@ interface ButtonProps {
   primarycolour: string;
 }
 
-export const Container = styled.div`
+interface ContainerProps {
+  backgroundColour: string;
+}
+
+export const Container = styled.div<ContainerProps>`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   max-width: 100%;
   height: 90vh;
+  background-color: ${(props) => props.backgroundColour};
 `;
 
 export const ImgContainer = styled.div`

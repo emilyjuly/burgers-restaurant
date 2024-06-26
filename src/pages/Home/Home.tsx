@@ -32,7 +32,7 @@ const Home = () => {
   return (
     <>
       <Navbar />
-      <Container>
+      <Container backgroundColour={data && data.webSettings.backgroundColour}>
         <ImgContainer>
           {data && (
             <Img src={data.webSettings.bannerImage} alt="Logo do restaurante" />

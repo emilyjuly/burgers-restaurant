@@ -20,8 +20,8 @@ const initialState: MenuState = {
 
 export const fetchMenu = createAsyncThunk('menu/fetchMenu', async () => {
   const response = await fetchMenuData();
-  const data = await response.json();
-  return data.webSettings;
+
+  return response;
 });
 
 const menuSlice = createSlice({
