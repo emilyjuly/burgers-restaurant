@@ -9,7 +9,7 @@ export const Container = styled.div`
   flex-direction: column;
   justify-content: space-between;
   max-width: 100%;
-  height: 100vh;
+  height: 90vh;
 `;
 
 export const ImgContainer = styled.div`

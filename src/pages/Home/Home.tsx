@@ -12,18 +12,17 @@ import {
   Subtitle,
   BtnContainer,
   Btn,
-} from './styles';
+} from './style';
+import Navbar from '../../components/navbar/Navbar';
 
 const Home = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const { data, status, error } = useSelector(
-    (state: store) => state.restaurant,
-  );
+  const { data } = useSelector((state: store) => state.restaurant);
 
   const handleButtonClick = () => {
-    navigate('/menu');
+    navigate('/');
   };
 
   useEffect(() => {
@@ -31,29 +30,34 @@ const Home = () => {
   }, [dispatch]);
 
   return (
-    <Container>
-      <ImgContainer>
-        {data && (
-          <Img src={data.webSettings.bannerImage} alt="Logo do restaurante" />
-        )}
-      </ImgContainer>
-      <TextContainer>
-        {data && (
-          <Text primarycolour={data && data.webSettings.primaryColour}>
-            {data.name}
-          </Text>
-        )}
-      </TextContainer>
-      <BtnContainer>
-        <Subtitle>Clique no botão abaixo para conferir nossas opções!</Subtitle>
-        <Btn
-          primarycolour={data && data.webSettings.primaryColour}
-          onClick={handleButtonClick}
-        >
-          Entrar
-        </Btn>
-      </BtnContainer>
-    </Container>
+    <>
+      <Navbar />
+      <Container>
+        <ImgContainer>
+          {data && (
+            <Img src={data.webSettings.bannerImage} alt="Logo do restaurante" />
+          )}
+        </ImgContainer>
+        <TextContainer>
+          {data && (
+            <Text primarycolour={data && data.webSettings.primaryColour}>
+              {data.name}
+            </Text>
+          )}
+        </TextContainer>
+        <BtnContainer>
+          <Subtitle>
+            Clique no botão abaixo para conferir nossas opções!
+          </Subtitle>
+          <Btn
+            primarycolour={data && data.webSettings.primaryColour}
+            onClick={handleButtonClick}
+          >
+            Entrar
+          </Btn>
+        </BtnContainer>
+      </Container>
+    </>
   );
 };
 

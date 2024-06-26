@@ -1,10 +1,7 @@
-// src/pages/Contact.jsx
-import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { fetchRestaurant } from '../../store/slices/restaurantSlice';
+import Navbar from '../../components/navbar/Navbar';
 
 const Contact = () => {
-  return <div></div>;
+  return <Navbar />;
 };
 
 export default Contact;
