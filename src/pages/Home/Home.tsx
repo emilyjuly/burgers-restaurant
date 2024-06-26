@@ -1,9 +1,18 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { store } from '../../store';
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 import { fetchRestaurant } from '../../store/slices/restaurantSlice';
-import './styles.css';
+import {
+  Container,
+  ImgContainer,
+  Img,
+  TextContainer,
+  Text,
+  Subtitle,
+  BtnContainer,
+  Btn,
+} from './styles';
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -22,19 +31,29 @@ const Home = () => {
   }, [dispatch]);
 
   return (
-    <div className='container'>
-      <div className='imgContainer'>
-        {data && <img className='img' src={data.webSettings.bannerImage} alt="Logo do restaurante" />
-        }
-      </div>
-      <div className='textContainer'>
-        {data && <p className='text'>{data.name}</p>}
-      </div>
-      <div className='btnContainer'>
-        <p className='subtitle'>Clique no botão abaixo para conferir nossas opções!</p>
-        <button className='btn' onClick={handleButtonClick}>Entrar</button>
-      </div>
-    </div>
+    <Container>
+      <ImgContainer>
+        {data && (
+          <Img src={data.webSettings.bannerImage} alt="Logo do restaurante" />
+        )}
+      </ImgContainer>
+      <TextContainer>
+        {data && (
+          <Text primarycolour={data && data.webSettings.primaryColour}>
+            {data.name}
+          </Text>
+        )}
+      </TextContainer>
+      <BtnContainer>
+        <Subtitle>Clique no botão abaixo para conferir nossas opções!</Subtitle>
+        <Btn
+          primarycolour={data && data.webSettings.primaryColour}
+          onClick={handleButtonClick}
+        >
+          Entrar
+        </Btn>
+      </BtnContainer>
+    </Container>
   );
 };
 
