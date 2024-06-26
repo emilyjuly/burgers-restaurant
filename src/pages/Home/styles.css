@@ -1,24 +1,71 @@
-.home {
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  max-width: 100%;
+  height: 100vh;
+}
+
+.imgContainer {
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.img {
+  object-fit: cover;
+}
+
+.textContainer {
+  display: flex;
+  justify-content: center;
+  padding: 80px 20px 80px 20px;
   text-align: center;
+}
+
+.text {  
+  font-size: 50px;
+  font-weight: 600;
+  color: #4f372f;
+  text-align: center;
+  @media (min-width: 800px) {
+  font-size: 80px;
+  width: 50%;
+}
+}
+
+.subtitle {
+  display: flex;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 400;
+  text-align: center;
+}
+
+.btnContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
   padding: 20px;
 }
 
-.banner {
-  width: 100%;
-  max-width: 600px;
-  height: auto;
-}
-
-.enter-button {
-  margin-top: 20px;
-  padding: 10px 20px;
-  font-size: 16px;
-  background-color: #4f372f; /* Substitua pelo valor da cor primária */
+.btn {
+  padding: 10px;
+  background-color: #4f372f;
   color: white;
-  border: none;
+  font-weight: 500;
+  font-size: 18px;
+  width: 200px;
+  border-radius: 40px;
+  letter-spacing: 1px;
   cursor: pointer;
+  border: none;
+  transition: 0.5s;
 }
 
-.enter-button:hover {
-  background-color: #3e2b23; /* Substitua pelo valor de hover */
+.btn:hover {
+  transform: scale(1.1);
+  transition: 0,5s;
 }

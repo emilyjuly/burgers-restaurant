@@ -5,7 +5,9 @@ export const fetchRestaurant = createAsyncThunk(
   'restaurant/fetchRestaurant',
   async () => {
     const response = await fetchRestaurantData();
-    return response.data;
+    console.log(response);
+    
+    return response;
   },
 );
 
