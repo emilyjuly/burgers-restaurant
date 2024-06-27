@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 interface CircleProps {
   primaryColour: string;
+  isActive?: boolean;
 }
 
 export const Container = styled.div<CircleProps>`
@@ -11,7 +12,8 @@ export const Container = styled.div<CircleProps>`
   align-items: center;
   height: 130%;
   gap: 20px;
-  border-bottom: 3px solid ${(props) => props.primaryColour};
+  border-bottom: ${(props) =>
+    props.isActive ? `3px solid ${props.primaryColour}` : 'none'};
 `;
 
 export const ImgContainer = styled.div<CircleProps>`
@@ -21,7 +23,8 @@ export const ImgContainer = styled.div<CircleProps>`
   padding: 3px;
   overflow: hidden;
   border-radius: 50%;
-  border: 2px solid ${(props) => props.primaryColour};
+  border: ${(props) =>
+    props.isActive ? `2px solid ${props.primaryColour}` : 'none'};
   box-sizing: border-box;
 `;
 

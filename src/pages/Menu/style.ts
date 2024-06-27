@@ -9,14 +9,8 @@ export const Container = styled.div<ContainerProps>`
   flex-direction: column;
   width: 100%;
   height: 90vh;
-  padding: 16px;
+  padding: 10px;
   background-color: ${(props) => props.backgroundColour};
-`;
-
-export const CirclesContainer = styled.div`
-  display: flex;
-  justify-content: space-around;
-  padding: 27px 10px 27px 10px;
 `;
 
 export const ImgContainer = styled.div`

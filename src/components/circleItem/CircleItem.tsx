@@ -7,9 +7,11 @@ import { fetchRestaurant } from '../../store/slices/restaurantSlice';
 interface CircleProps {
   image: string;
   name: string;
+  isActive?: boolean;
+  onClick: () => void;
 }
 
-const CircleItem = ({ image, name }: CircleProps) => {
+const CircleItem = ({ image, name, isActive, onClick }: CircleProps) => {
   const dispatch = useDispatch();
 
   const restaurantData = useSelector((state: store) => state.restaurant.data);
@@ -20,9 +22,12 @@ const CircleItem = ({ image, name }: CircleProps) => {
 
   return (
     <Container
+      isActive={isActive}
       primaryColour={restaurantData && restaurantData.webSettings.primaryColour}
+      onClick={onClick}
     >
       <ImgContainer
+        isActive={isActive}
         primaryColour={
           restaurantData && restaurantData.webSettings.primaryColour
         }
