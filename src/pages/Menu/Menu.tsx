@@ -7,6 +7,7 @@ import { fetchRestaurant } from '../../store/slices/restaurantSlice';
 import InputSearch from '../../components/inputSearch/InputSearch';
 import CircleItem from '../../components/circleItem/CircleItem';
 import { fetchMenu } from '../../store/slices/menuSlice';
+import Burgers from '../../components/burgers/Burgers';
 
 interface ItemProps {
   name: string;
@@ -57,6 +58,7 @@ const Menu = () => {
             ))}
           </CirclesContainer>
         )}
+        <Burgers />
       </Container>
     </>
   );
