@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import {
   Container,
   Icon,
@@ -33,9 +33,10 @@ interface ItemProps {
 
 interface FoodsProps {
   categoryRefs: React.RefObject<{ [key: string]: HTMLDivElement | null }>;
+  filteredItems: ItemProps[];
 }
 
-const Foods = ({ categoryRefs }: FoodsProps) => {
+const Foods = ({ categoryRefs, filteredItems }: FoodsProps) => {
   const dispatch = useDispatch();
   const [expandedCategories, setExpandedCategories] = useState<{
     [key: string]: boolean;
@@ -91,39 +92,42 @@ const Foods = ({ categoryRefs }: FoodsProps) => {
     }));
   };
 
+
   return (
     <Container>
       {menuData &&
-        menuData.map((item: ItemProps) => (
+        menuData.map((category: ItemProps) => (
           <div
-            key={item.id}
-            ref={(el) => (categoryRefs.current[item.name] = el)}
-            data-category={item.name}
+            key={category.id}
+            ref={(el) => (categoryRefs.current[category.name] = el)}
+            data-category={category.name}
           >
-            <TitleContainer onClick={() => toggleCategory(item.name)}>
-              <Title className={activeCategory === item.name ? 'active' : ''}>
-                {item.name}
+            <TitleContainer onClick={() => toggleCategory(category.name)}>
+              <Title className={activeCategory === category.name ? 'active' : ''}>
+                {category.name}
               </Title>
               <Icon
-                className={expandedCategories[item.name] ? 'expanded' : ''}
+                className={expandedCategories[category.name] ? 'expanded' : ''}
               />
             </TitleContainer>
-            {expandedCategories[item.name] &&
-              item.items.map((subItem: ItemProps) => (
-                <ItemCard key={subItem.id}>
-                  <InfoContainer>
-                    <ItemName>{subItem.name}</ItemName>
-                    {subItem.description && (
-                      <ItemDescription>{subItem.description}</ItemDescription>
+            {expandedCategories[category.name] &&
+              category.items.map((item: ItemProps) => (
+                filteredItems.some(filteredItem => filteredItem.id === item.id) && (
+                  <ItemCard key={item.id}>
+                    <InfoContainer>
+                      <ItemName>{item.name}</ItemName>
+                      {item.description && (
+                        <ItemDescription>{item.description}</ItemDescription>
+                      )}
+                      {item.price && <ItemPrice>R$ {item.price}</ItemPrice>}
+                    </InfoContainer>
+                    {item.images && item.images.length > 0 && (
+                      <ImgContainer>
+                        <Img src={item.images[0].image} />
+                      </ImgContainer>
                     )}
-                    {subItem.price && <ItemPrice>R$ {subItem.price}</ItemPrice>}
-                  </InfoContainer>
-                  {subItem.images && subItem.images.length > 0 && (
-                    <ImgContainer>
-                      <Img src={subItem.images[0].image} />
-                    </ImgContainer>
-                  )}
-                </ItemCard>
+                  </ItemCard>
+                )
               ))}
           </div>
         ))}

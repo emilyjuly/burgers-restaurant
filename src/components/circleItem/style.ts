@@ -10,8 +10,8 @@ export const Container = styled.div<CircleProps>`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 130%;
-  gap: 20px;
+  height: 120%;
+  gap: 15px;
   border-bottom: ${(props) =>
     props.isActive ? `3px solid ${props.primaryColour}` : 'none'};
 `;

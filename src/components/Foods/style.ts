@@ -4,7 +4,7 @@ import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
-  margin: 20px 0 0 0;
+  margin: 30px 0 0 0;
   gap: 20px;
   max-height: 60vh;
   overflow-y: auto;

@@ -26,4 +26,9 @@ export const Input = styled.input`
   padding: 10px 10px 10px 40px;
   width: 350px;
   box-sizing: border-box;
+
+   &:focus {
+    border-color: #8a94a4; 
+    outline: none;
+  }
 `;

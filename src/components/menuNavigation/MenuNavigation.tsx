@@ -16,6 +16,8 @@ const MenuNavigation = () => {
   const dispatch = useDispatch();
   const [items, setItems] = useState<ItemProps[]>([]);
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
+  const [filteredItems, setFilteredItems] = useState([]);
+  const [searchText, setSearchText] = useState<string>('');
 
   const categoryRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
 
@@ -32,6 +34,7 @@ const MenuNavigation = () => {
         image: item.images[0].image,
       }));
       setItems(fetchedItems);
+      handleSearch(searchText);
     }
   }, [menuData]);
 
@@ -42,9 +45,22 @@ const MenuNavigation = () => {
     }
   };
 
+  const handleSearch = (text: string) => {
+    setSearchText(text);
+    if (menuData) {
+      const filteredItems = menuData.reduce((acc: ItemProps[], category: any) => {
+        const filteredSubItems = category.items.filter((item: any) =>
+          item.name.toLowerCase().includes(text.toLowerCase())
+        );
+        return [...acc, ...filteredSubItems];
+      }, []);
+      setFilteredItems(filteredItems);
+    }
+  };
+
   return (
     <Container>
-      <InputSearch />
+      <InputSearch onSearch={handleSearch} />
       {menuData && (
         <CirclesContainer>
           {items.map((item) => (
@@ -58,7 +74,7 @@ const MenuNavigation = () => {
           ))}
         </CirclesContainer>
       )}
-      <Foods categoryRefs={categoryRefs} />
+      <Foods categoryRefs={categoryRefs} filteredItems={filteredItems} />
     </Container>
   );
 };

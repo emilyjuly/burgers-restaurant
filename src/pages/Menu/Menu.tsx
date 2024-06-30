@@ -2,9 +2,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import Navbar from '../../components/navbar/Navbar';
 import { Container, Img, ImgContainer } from './style';
 import store from '../../store';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { fetchRestaurant } from '../../store/slices/restaurantSlice';
-import { fetchMenu } from '../../store/slices/menuSlice';
 import MenuNavigation from '../../components/menuNavigation/MenuNavigation';
 
 const Menu = () => {
