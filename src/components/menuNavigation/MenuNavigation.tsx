@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import CircleItem from '../circleItem/CircleItem';
 import InputSearch from '../inputSearch/InputSearch';
-import { CirclesContainer, Container } from './style';
+import { CirclesContainer, Container, EmptyContainer, InfoContainer, InfoLink } from './style';
 import store from '../../store';
 import { useEffect, useRef, useState } from 'react';
 import { fetchMenu } from '../../store/slices/menuSlice';
@@ -12,7 +12,11 @@ interface ItemProps {
   image: string;
 }
 
-const MenuNavigation = () => {
+interface MenuNavigationProps {
+  primaryColour: string;
+}
+
+const MenuNavigation = ({ primaryColour }: MenuNavigationProps) => {
   const dispatch = useDispatch();
   const [items, setItems] = useState<ItemProps[]>([]);
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
@@ -74,7 +78,15 @@ const MenuNavigation = () => {
           ))}
         </CirclesContainer>
       )}
+<<<<<<< Updated upstream
       <Foods categoryRefs={categoryRefs} filteredItems={filteredItems} />
+=======
+      <Foods categoryRefs={categoryRefs} />
+      <InfoContainer>
+        <InfoLink primaryColour={primaryColour} href="#">Visualizar informações sobre alergias</InfoLink>
+      </InfoContainer>
+      <EmptyContainer></EmptyContainer>
+>>>>>>> Stashed changes
     </Container>
   );
 };

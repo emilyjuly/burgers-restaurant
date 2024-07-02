@@ -10,6 +10,7 @@ import Home from './pages/Home/Home';
 import Menu from './pages/Menu/Menu';
 import './styles/main.css';
 import Contact from './pages/Contact/Contact';
+import ItemDetails from './pages/ItemDetails/ItemDetails';
 
 const App = () => {
   const location = useLocation();
@@ -21,6 +22,7 @@ const App = () => {
           <Route path="/" element={<Menu />} />
           <Route path="/entrar" element={<Home />} />
           <Route path="/contato" element={<Contact />} />
+          <Route path="/item/:id" element={<ItemDetails />} />
         </Routes>
       </CSSTransition>
     </TransitionGroup>

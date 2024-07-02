@@ -10,8 +10,14 @@ export const Container = styled.div<CircleProps>`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+<<<<<<< Updated upstream
   height: 120%;
   gap: 15px;
+=======
+  cursor: pointer;
+  height: 130%;
+  gap: 20px;
+>>>>>>> Stashed changes
   border-bottom: ${(props) =>
     props.isActive ? `3px solid ${props.primaryColour}` : 'none'};
 `;

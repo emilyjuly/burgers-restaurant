@@ -15,6 +15,7 @@ import {
 import { useDispatch, useSelector } from 'react-redux';
 import store from '../../store';
 import { fetchMenu } from '../../store/slices/menuSlice';
+import { useNavigate } from 'react-router-dom'
 
 interface ItemProps {
   id: number;
@@ -44,6 +45,7 @@ const Foods = ({ categoryRefs, filteredItems }: FoodsProps) => {
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
 
   const menuData = useSelector((state: store) => state.menu.data);
+  const navigate = useNavigate();
 
   useEffect(() => {
     dispatch(fetchMenu());
@@ -110,6 +112,7 @@ const Foods = ({ categoryRefs, filteredItems }: FoodsProps) => {
                 className={expandedCategories[category.name] ? 'expanded' : ''}
               />
             </TitleContainer>
+<<<<<<< Updated upstream
             {expandedCategories[category.name] &&
               category.items.map((item: ItemProps) => (
                 filteredItems.some(filteredItem => filteredItem.id === item.id) && (
@@ -125,6 +128,15 @@ const Foods = ({ categoryRefs, filteredItems }: FoodsProps) => {
                       <ImgContainer>
                         <Img src={item.images[0].image} />
                       </ImgContainer>
+=======
+            {expandedCategories[item.name] &&
+              item.items.map((subItem: ItemProps) => (
+                <ItemCard key={subItem.id} onClick={() => navigate(`/item/${subItem.id}`)}>
+                  <InfoContainer>
+                    <ItemName>{subItem.name}</ItemName>
+                    {subItem.description && (
+                      <ItemDescription>{subItem.description}</ItemDescription>
+>>>>>>> Stashed changes
                     )}
                   </ItemCard>
                 )

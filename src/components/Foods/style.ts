@@ -34,6 +34,7 @@ export const Icon = styled(KeyboardArrowDownIcon)`
 
 export const ItemCard = styled.div`
   display: flex;
+  cursor: pointer;
   justify-content: space-between;
   width: 100%;
   padding: 30px 0 10px 0;

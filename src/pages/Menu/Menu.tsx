@@ -29,7 +29,7 @@ const Menu = () => {
           restaurantData && restaurantData.webSettings.backgroundColour
         }
       >
-        <MenuNavigation />
+        <MenuNavigation primaryColour={restaurantData && restaurantData.webSettings.primaryColour}/>
       </Container>
     </>
   );
